@@ -1,15 +1,21 @@
-<section id="main" data-transition="cover" data-aside="features">
+<section id="main" data-transition="cover">
 	<header>
-		<nav>
-			<a href="#" data-view-aside="features" data-icon="menu"></a>
-		</nav>
+		<h1 class="title centered">Si Joven</h1>
 	</header>
-	<article id="art_main_map">
-		<p>Main</p>
+	<article id="art_main_map" class="indented scroll active">
+		<div class="form">
+			<fieldset data-icon="search">
+				<span class="icon search"></span>
+                <input type="search" placeholder="Buscar...">
+            </fieldset>
+		</div>
 	</article>
 	<footer>
 		<nav>
-			<a href="#" data-action="locate" data-icon="map-marker"></a>
+			<a href="#" class="active" data-action="search" data-icon="search"></a>
+			<a href="#" data-action="star" data-icon="star"></a>
+			<a href="#" data-action="heart" data-icon="heart"></a>
+			<a href="#" data-view-section="profile" data-action="hv"><span>HV</span></a>
 		</nav>
 	</footer>
 </section>
