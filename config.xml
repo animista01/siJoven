@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id = "com.si.joven"
+        version = "1.0">
+    
+    <name>Si Joven</name>
+
+    <description>
+        Mobile Application for Looking Jods
+    </description>
+
+    <preference name="orientation" value="portrait" />
+    <preference name="stay-in-webview" value="true" />
+    
+    <access origin="*" subdomains="true" />
+        
+    <feature name="http://api.phonegap.com/1.0/geolocation"/>
+    
+</widget>
