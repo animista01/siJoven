@@ -15,10 +15,6 @@
       "tap input#datepicker": "onDatePicker"
     };
 
-    ProfileCtrl.prototype.initialize = function() {
-      return Lungo.Router.section('main');
-    };
-
     ProfileCtrl.prototype.onDatePicker = function() {
       var option;
       console.log('aa');
@@ -27,8 +23,7 @@
         mode: 'date'
       };
       return datePicker.show(option, function(date) {
-        Lungo.Notification.success("" + date, "", 2);
-        return $$('#txtEmail').val(date);
+        return $$('#datepicker').val(date);
       });
     };
 
