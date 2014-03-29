@@ -17,7 +17,6 @@
 
     ProfileCtrl.prototype.onDatePicker = function() {
       var option;
-      console.log('aa');
       option = {
         date: new Date(),
         mode: 'date'

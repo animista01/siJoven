@@ -4,7 +4,6 @@ class ProfileCtrl extends Monocle.Controller
 		"tap input#datepicker"  : "onDatePicker"
 
 	onDatePicker: ->
-		console.log 'aa'
 		option = {date: new Date(), mode: 'date'}
 		datePicker.show(option, (date) ->
 			$$('#datepicker').val(date)
