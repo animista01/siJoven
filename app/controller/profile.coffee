@@ -2,7 +2,7 @@ class ProfileCtrl extends Monocle.Controller
 
 	events: 
 		# "tap a[data-action=hv]"       : "onHV"
-		"tap #txtEmail" : onDatePicker
+		"tap input#datepicker" : "onDatePicker"
 
 	initialize: ->
 		Lungo.Router.section 'main'
@@ -12,6 +12,7 @@ class ProfileCtrl extends Monocle.Controller
 	# 	Lungo.Router.section 'profile'
 	# 	Lungo.Notification.hide()
 	onDatePicker: ->
+		console.log 'aa'
 		option = {date: new Date(), mode: 'date'}
 		datePicker.show(option, (date) ->
 			Lungo.Notification.success "#{date}",

@@ -12,7 +12,7 @@
     }
 
     ProfileCtrl.prototype.events = {
-      "tap #txtEmail": onDatePicker
+      "tap input#datepicker": "onDatePicker"
     };
 
     ProfileCtrl.prototype.initialize = function() {
@@ -21,6 +21,7 @@
 
     ProfileCtrl.prototype.onDatePicker = function() {
       var option;
+      console.log('aa');
       option = {
         date: new Date(),
         mode: 'date'
