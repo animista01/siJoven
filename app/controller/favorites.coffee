@@ -1,23 +1,12 @@
 class FavoritesCtrl extends Monocle.Controller
 	events: 
-		"tap article#art-favorites ul li"    	  : "onTapStablishment"
+		"tap a#main"    	  : "onMain"
+		"tap a#star"    	  : "onStar"
 
-	initialize: ->
-		db = window.openDatabase("SiJoven", "1.0", "Test DB", 1000000)
-		db.transaction( __Controller.Favorites.Query, __Controller.Favorites.Error  )
-
-	QuerySuccess: (tx, results) ->
-    	console.log results
+	onMain: ->
+		do __Controller.Main.initialize
     
-    Error: (err)->
-    	console.log err
-
-	Query: (tx) ->
-		tx.executeSql( 'SELECT * FROM favorites', [], __Controller.Favorites.QuerySuccess, __Controller.Favorites.Error ) 	
-
-	onTapStablishment: (e) ->
-		Lungo.Notification.show()
-		id = e.currentTarget.id
-		__Controller.Establishment.initialize id
+    onStar: ->
+		do __Controller.Filter.initialize
 
 __Controller.Favorites = new FavoritesCtrl "section#favorites"

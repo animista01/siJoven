@@ -20,7 +20,6 @@ MainCtrl = (function(_super) {
   MainCtrl.prototype.events = {
     "tap li.selectable": "onOfert",
     "tap span#btnSearch": "OnSearch",
-    "tap a#footerFavorite": "OnFavorite",
     "tap a#star": "OnStar"
   };
 
@@ -80,10 +79,6 @@ MainCtrl = (function(_super) {
     id = e.currentTarget.id;
     Lungo.Notification.show();
     return __Controller.Ofert.initialize(myMap[id]);
-  };
-
-  MainCtrl.prototype.OnFavorite = function() {
-    return __Controller.Favorites.initialize();
   };
 
   MainCtrl.prototype.OnStar = function() {

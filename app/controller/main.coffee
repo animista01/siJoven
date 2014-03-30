@@ -4,7 +4,6 @@ class MainCtrl extends Monocle.Controller
 	events: 
 		"tap li.selectable"       : "onOfert"
 		"tap span#btnSearch"      : "OnSearch"
-		"tap a#footerFavorite"    : "OnFavorite"
 		"tap a#star"              : "OnStar"
 
 	result = null
@@ -44,9 +43,6 @@ class MainCtrl extends Monocle.Controller
 
 		Lungo.Notification.show()
 		__Controller.Ofert.initialize myMap[id]
-
-	OnFavorite: ->
-		do __Controller.Favorites.initialize
 
 	OnStar: ->
 		do __Controller.Filter.initialize

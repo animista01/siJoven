@@ -23,7 +23,7 @@ class __View.Filter extends Monocle.View
 				<a href="#" id="onSearch" data-action="search" data-icon="search">
 					<span class="icon search"></span></a>
 				<a href="#" id="star" class="active" data-action="star" data-icon="star"><span class="icon star"></span></a></a>
-				<a href="#" id="footerFavorite" data-icon="heart"><span class="icon heart"></span></a></a>
+				<a href="#" data-view-section="favorites" id="footerFavorite" data-icon="heart"><span class="icon heart"></span></a></a>
 				<a href="#" data-view-section="profile" data-action="hv"><span class="icon user"></span></a>
 			</nav>
 		</footer>

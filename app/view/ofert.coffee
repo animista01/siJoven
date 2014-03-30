@@ -31,7 +31,7 @@ class __View.Ofert extends Monocle.View
 				<a href="#" data-action="search" data-view-section="main"  data-icon="search">
 					<span class="icon search"></span></a>
 				<a href="#" data-action="star" data-icon="star"><span class="icon star"></span></a></a>
-				<a href="#" data-action="heart" data-icon="heart"><span class="icon heart"></span></a></a>
+				<a href="#" data-view-section="favorites" data-action="heart" data-icon="heart"><span class="icon heart"></span></a></a>
 				<a href="#" data-view-section="profile" data-action="hv"><span class="icon user"></span></a>
 			</nav>
 		</footer>

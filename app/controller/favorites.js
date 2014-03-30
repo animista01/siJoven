@@ -12,32 +12,15 @@ FavoritesCtrl = (function(_super) {
   }
 
   FavoritesCtrl.prototype.events = {
-    "tap article#art-favorites ul li": "onTapStablishment"
+    "tap a#main": "onMain",
+    "tap a#star": "onStar"
   };
 
-  FavoritesCtrl.prototype.initialize = function() {
-    var db;
-    db = window.openDatabase("SiJoven", "1.0", "Test DB", 1000000);
-    return db.transaction(__Controller.Favorites.Query, __Controller.Favorites.Error);
-  };
-
-  FavoritesCtrl.prototype.QuerySuccess = function(tx, results) {
-    return console.log(results);
-  };
-
-  FavoritesCtrl.prototype.Error = function(err) {
-    return console.log(err);
-  };
-
-  FavoritesCtrl.prototype.Query = function(tx) {
-    return tx.executeSql('SELECT * FROM favorites', [], __Controller.Favorites.QuerySuccess, __Controller.Favorites.Error);
-  };
-
-  FavoritesCtrl.prototype.onTapStablishment = function(e) {
-    var id;
-    Lungo.Notification.show();
-    id = e.currentTarget.id;
-    return __Controller.Establishment.initialize(id);
+  FavoritesCtrl.prototype.onMain = function() {
+    __Controller.Main.initialize({
+      onStar: function() {}
+    })();
+    return __Controller.Filter.initialize();
   };
 
   return FavoritesCtrl;
