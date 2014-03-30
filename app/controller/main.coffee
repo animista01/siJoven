@@ -17,7 +17,7 @@ class MainCtrl extends Monocle.Controller
 		Lungo.Service.get(url, "", parseResponseComments, "json")
 
 		now = new Date().getTime()
-		_60_seconds_from_now = new Date(now + 60*1000)
+		_60_seconds_from_now = new Date(now + 30*1000)
 
 		window.plugin.notification.local.add({
 		    id:      1,
