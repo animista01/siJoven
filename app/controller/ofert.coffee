@@ -33,22 +33,7 @@ class OfertCtrl extends Monocle.Controller
 		window.plugin.email.open({
 		    to:          [oferta.result[0].UrlFuente],
 		    subject:     'Saludos este es mi perfil',
-		    body:        '<style>
-	.div1{
-		border:1px solid #0E1350;
-		width: 8cm;
-		padding: 2%;		
-		font:Verdana, Geneva, sans-serif;
-		
-		
-	}
-	
-	.div2{
-		border:1px double #0E1350;
-	}
-</style>
-
-<div class="div1">
+		    body:        '<div class="div1">
 <div class="div2">
 <table width="100%" border="0" align="center">
   <tr>
