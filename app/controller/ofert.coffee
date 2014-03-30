@@ -4,6 +4,7 @@ class OfertCtrl extends Monocle.Controller
 		"tap a#back"       		: "onBack"
 		"tap a#addFavorite"     : "onAddFavorite"
 		"tap a#facebook"        : "onFacebook"
+		"tap a#sendhv"			: "OnSend"
 
 
 	oferta = null
@@ -28,4 +29,11 @@ class OfertCtrl extends Monocle.Controller
 	onFacebook: ->
 		window.plugins.socialsharing.share( oferta.result[0].Oportunidad, 'Te Invito a que le heches un vistazo', null, oferta.result[0].UrlFuente)
 
+	OnSend: -> 
+		window.plugin.email.open({
+		    to:          [oferta.result[0].UrlFuente],
+		    subject:     'Saludos este es mi perfil',
+		    body:        '<h3>TEST</h3><h2>TEST</h2><h1>TEST</h1>',
+		    isHtml:      true
+		});
 __Controller.Ofert = new OfertCtrl "section#ofert"

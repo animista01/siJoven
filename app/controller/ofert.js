@@ -16,7 +16,8 @@
     OfertCtrl.prototype.events = {
       "tap a#back": "onBack",
       "tap a#addFavorite": "onAddFavorite",
-      "tap a#facebook": "onFacebook"
+      "tap a#facebook": "onFacebook",
+      "tap a#sendhv": "OnSend"
     };
 
     oferta = null;
@@ -49,6 +50,15 @@
 
     OfertCtrl.prototype.onFacebook = function() {
       return window.plugins.socialsharing.share(oferta.result[0].Oportunidad, 'Te Invito a que le heches un vistazo', null, oferta.result[0].UrlFuente);
+    };
+
+    OfertCtrl.prototype.OnSend = function() {
+      return window.plugin.email.open({
+        to: [oferta.result[0].UrlFuente],
+        subject: 'Saludos este es mi perfil',
+        body: '<h3>TEST</h3><h2>TEST</h2><h1>TEST</h1>',
+        isHtml: true
+      });
     };
 
     return OfertCtrl;
