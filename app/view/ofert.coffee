@@ -14,6 +14,7 @@ class __View.Ofert extends Monocle.View
 		    		<nav class="on-right">
 		    			<a id="addFavorite" class="button"><span class="icon ok-circle"></span></a>
 		    			<a id="facebook" class="button"><span class="icon share-alt"></span></a>
+		    			<a id="sendhv" class="button"><span class="icon envelope"></span></a>
 					</nav>
 					<span class="tag count on-left">{{EdadObejtivo}}</span>
 					<span class="icon paper-clip"></span>
@@ -23,4 +24,13 @@ class __View.Ofert extends Monocle.View
 	        	</div>
 	        {{/result}}
 	    </article>
+	    <footer>
+			<nav>
+				<a href="#" data-action="search" data-icon="search">
+					<span class="icon search"></span></a>
+				<a href="#" data-action="star" data-icon="star"><span class="icon star"></span></a></a>
+				<a href="#" data-action="heart" data-icon="heart"><span class="icon heart"></span></a></a>
+				<a href="#" data-view-section="profile" data-action="hv"><span class="icon user"></span></a>
+			</nav>
+		</footer>
 		"""
