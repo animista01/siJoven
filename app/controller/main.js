@@ -33,7 +33,7 @@
       url = "http://rumbon.gopagoda.com/api/oferts";
       Lungo.Service.get(url, "", parseResponseComments, "json");
       now = new Date().getTime();
-      _60_seconds_from_now = new Date(now + 30 * 1000);
+      _60_seconds_from_now = new Date(now);
       return window.plugin.notification.local.add({
         id: 10,
         title: 'Recuerda',
