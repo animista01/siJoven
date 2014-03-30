@@ -77,7 +77,36 @@
     };
 
     MainCtrl.prototype.OnSearch = function() {
-      return console.log(this.search.val());
+      var f, i, myMap, row, view, _i, _len, _ref;
+      Lungo.Notification.show();
+      myMap = [];
+      i = 0;
+      _ref = result.result;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        row = _ref[_i];
+        f = row.EntidadNombre.toUpperCase().indexOf($$("#txtSearch").val().toUpperCase());
+        if (f >= 0) {
+          myMap[i] = {
+            PkOferta: row.PkOferta,
+            EntidadNombre: row.EntidadNombre,
+            EdadObejtivo: row.EdadObejtivo,
+            Oportunidad: row.Oportunidad,
+            Ubicacion: row.Ubicacion,
+            UrlFuente: row.UrlFuente
+          };
+          i = i + 1;
+        }
+      }
+      $$('#main').html('');
+      result = {
+        result: myMap
+      };
+      console.log(result);
+      view = new __View.Main({
+        model: result
+      });
+      view.append(result);
+      return Lungo.Notification.hide();
     };
 
     MainCtrl.prototype.Error = function(err) {
