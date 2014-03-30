@@ -14,7 +14,7 @@
     <preference name="stay-in-webview" value="true" />
     
     <access origin="*" subdomains="true" />
-    <gap:plugin name="cn.push.cordova.plugin.local-notification" version="0.7.3" />
+    <gap:plugin name="de.appplant.cordova.plugin.local-notification" />
     <gap:plugin name="de.appplant.cordova.plugin.email-composer" />
     <gap:plugin name="nl.x-services.plugins.socialsharing"/>
     <gap:plugin name="com.plugin.datepicker" />
