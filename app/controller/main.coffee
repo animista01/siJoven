@@ -20,7 +20,7 @@ class MainCtrl extends Monocle.Controller
 		_60_seconds_from_now = new Date(now + 30*1000)
 
 		window.plugin.notification.local.add({
-		    id:      1,
+		    id:      10,
 		    title:   'Recuerda',
 		    message: 'La oferta del sena esta llegando a su fin',
 		    repeat:  'weekly',
