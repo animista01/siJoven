@@ -22,7 +22,7 @@
         mode: 'date'
       };
       return datePicker.show(option, function(date) {
-        return $('#datepicker').val(date);
+        return $$('#datepicker').val('date');
       });
     };
 
