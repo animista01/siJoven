@@ -33,7 +33,20 @@ class MainCtrl extends Monocle.Controller
 		__Controller.Ofert.initialize myMap[id]
 
 	OnSearch: ->
-		console.log @search.val()
+		Lungo.Notification.show()
+		myMap = []
+		i = 0
+		for row in result.result
+			f = row.EntidadNombre.toUpperCase().indexOf $$("#txtSearch").val().toUpperCase()
+			if  f >=  0
+				myMap[i] = PkOferta: row.PkOferta, EntidadNombre: row.EntidadNombre, EdadObejtivo: row.EdadObejtivo, Oportunidad: row.Oportunidad, Ubicacion:row.Ubicacion, UrlFuente: row.UrlFuente
+				i = i + 1
+		$$('#main').html('')
+		result = result: myMap
+		console.log result
+		view = new __View.Main model: result
+		view.append result
+		Lungo.Notification.hide()
 
 	Error: (err) ->
 		alert("Error processing SQL: " + err.code)
