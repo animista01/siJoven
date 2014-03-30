@@ -6,7 +6,7 @@ class ProfileCtrl extends Monocle.Controller
 	onDatePicker: ->
 		option = {date: new Date(), mode: 'date'}
 		datePicker.show(option, (date) ->
-			$$('#datepicker').val(data)
+			$$('#datepicker').val(date)
 		)
 
 	#$('#datepicker').val 'date'
