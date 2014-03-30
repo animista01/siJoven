@@ -8,13 +8,17 @@ class MainCtrl extends Monocle.Controller
 	initialize: ->
 		Lungo.Router.section 'main'
 		db = window.openDatabase("SiJoven", "1.0", "Test DB", 1000000);
-		db.transaction( __Controller.Main.Query, (err) ->
-    			alert("Error processing SQL: "+err.code)
-			, -> alert("success!") )
+		db.transaction( __Controller.Main.Query, __Controller.Main.Error, __Controller.Main.success )
 
 	OnSearch: ->
 		console.log @search.val()
 
+	Error: (err) ->
+		alert("Error processing SQL: " + err.code)
+
+	success: ->
+		console.log 'success!'
+		
 	Query: (tx) ->
 		tx.executeSql('CREATE TABLE IF NOT EXISTS favoritos (id unique, data)');
 		tx.executeSql('CREATE TABLE IF NOT EXISTS profile (id PRIMARY KEY, nombre, fecha, email, comentario, nivel )');

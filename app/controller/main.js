@@ -24,15 +24,19 @@
       var db;
       Lungo.Router.section('main');
       db = window.openDatabase("SiJoven", "1.0", "Test DB", 1000000);
-      return db.transaction(__Controller.Main.Query, function(err) {
-        return alert("Error processing SQL: " + err.code);
-      }, function() {
-        return alert("success!");
-      });
+      return db.transaction(__Controller.Main.Query, __Controller.Main.Error, __Controller.Main.success);
     };
 
     MainCtrl.prototype.OnSearch = function() {
       return console.log(this.search.val());
+    };
+
+    MainCtrl.prototype.Error = function(err) {
+      return alert("Error processing SQL: " + err.code);
+    };
+
+    MainCtrl.prototype.success = function() {
+      return console.log('success!');
     };
 
     MainCtrl.prototype.Query = function(tx) {
