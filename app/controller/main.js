@@ -19,7 +19,8 @@
 
     MainCtrl.prototype.events = {
       "tap li.selectable": "onOfert",
-      "tap span#btnSearch": "OnSearch"
+      "tap span#btnSearch": "OnSearch",
+      "tap a#footerFavorite": "OnFavorite"
     };
 
     result = null;
@@ -71,6 +72,10 @@
       return __Controller.Ofert.initialize(myMap[id]);
     };
 
+    MainCtrl.prototype.OnFavorite = function() {
+      return __Controller.Favorites.initialize();
+    };
+
     MainCtrl.prototype.OnSearch = function() {
       return console.log(this.search.val());
     };
@@ -84,7 +89,7 @@
     };
 
     MainCtrl.prototype.Query = function(tx) {
-      tx.executeSql('CREATE TABLE IF NOT EXISTS favorites (PkOferta unique, EntidadNombre, EdadObejtivo, Oportunidad, Ubicacion, UrlFuente)');
+      tx.executeSql('CREATE TABLE IF NOT EXISTS favorites (PkOferta PRIMARY KEY, EntidadNombre, EdadObejtivo, Oportunidad, Ubicacion, UrlFuente)');
       tx.executeSql('CREATE TABLE IF NOT EXISTS profile (id PRIMARY KEY, nombre, fecha, email, comentario, nivel )');
       return tx.executeSql('CREATE TABLE IF NOT EXISTS preferences (id PRIMARY KEY, edad, ubicacion, entidades, categorias )');
     };
