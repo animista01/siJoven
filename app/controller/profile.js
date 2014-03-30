@@ -22,9 +22,7 @@
         mode: 'date'
       };
       return datePicker.show(option, function(date) {
-        var sereyomaestro;
-        sereyomaestro = "si maestro soy yo";
-        return $$('#datepicker').val(sereyomaestro);
+        return $$('#datepicker').val(data);
       });
     };
 
