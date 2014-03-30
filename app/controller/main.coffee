@@ -26,7 +26,7 @@ class MainCtrl extends Monocle.Controller
 	onOfert: (e) ->
 		myMap = {}
 		for row in result.result
-		  myMap[row.PkOferta] = result : [PkOferta: row.PkOferta, FechaVencimiento:row.FechaVencimiento ,EntidadNombre: row.EntidadNombre, EdadObejtivo: row.EdadObejtivo, Oportunidad: row.Oportunidad, Ubicacion:row.Ubicacion, UrlFuente: row.UrlFuente]
+		  myMap[row.PkOferta] = result : [PkOferta: row.PkOferta, EntidadNombre: row.EntidadNombre, EdadObejtivo: row.EdadObejtivo, Oportunidad: row.Oportunidad, Ubicacion:row.Ubicacion, UrlFuente: row.UrlFuente]
 		id = e.currentTarget.id
 
 		Lungo.Notification.show()
@@ -44,6 +44,7 @@ class MainCtrl extends Monocle.Controller
 	Query: (tx) ->
 		tx.executeSql('CREATE TABLE IF NOT EXISTS favorites (PkOferta unique, EntidadNombre, EdadObejtivo, Oportunidad, Ubicacion, UrlFuente)');
 		tx.executeSql('CREATE TABLE IF NOT EXISTS profile (id PRIMARY KEY, nombre, fecha, email, comentario, nivel )');
+		tx.executeSql('CREATE TABLE IF NOT EXISTS preferences (id PRIMARY KEY, edad, ubicacion, entidades, categorias )');
 
 Lungo.ready ->
 	__Controller.Main = new MainCtrl "section#main"

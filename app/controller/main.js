@@ -57,7 +57,6 @@
           result: [
             {
               PkOferta: row.PkOferta,
-              FechaVencimiento: row.FechaVencimiento,
               EntidadNombre: row.EntidadNombre,
               EdadObejtivo: row.EdadObejtivo,
               Oportunidad: row.Oportunidad,
@@ -86,7 +85,8 @@
 
     MainCtrl.prototype.Query = function(tx) {
       tx.executeSql('CREATE TABLE IF NOT EXISTS favorites (PkOferta unique, EntidadNombre, EdadObejtivo, Oportunidad, Ubicacion, UrlFuente)');
-      return tx.executeSql('CREATE TABLE IF NOT EXISTS profile (id PRIMARY KEY, nombre, fecha, email, comentario, nivel )');
+      tx.executeSql('CREATE TABLE IF NOT EXISTS profile (id PRIMARY KEY, nombre, fecha, email, comentario, nivel )');
+      return tx.executeSql('CREATE TABLE IF NOT EXISTS preferences (id PRIMARY KEY, edad, ubicacion, entidades, categorias )');
     };
 
     return MainCtrl;
