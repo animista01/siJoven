@@ -37,9 +37,7 @@
       return window.plugin.notification.local.add({
         id: 10,
         title: 'Recuerda',
-        message: 'La oferta del sena esta llegando a su fin',
-        repeat: 'weekly',
-        date: _60_seconds_from_now
+        message: 'La oferta del sena esta llegando a su fin'
       });
     };
 
