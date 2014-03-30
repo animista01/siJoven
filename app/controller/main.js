@@ -84,7 +84,7 @@
     };
 
     MainCtrl.prototype.Query = function(tx) {
-      tx.executeSql('CREATE TABLE IF NOT EXISTS favoritos (id unique, data)');
+      tx.executeSql('CREATE TABLE IF NOT EXISTS favorites (PkOferta unique, EntidadNombre, EdadObejtivo, Oportunidad, Ubicacion, UrlFuente)');
       return tx.executeSql('CREATE TABLE IF NOT EXISTS profile (id PRIMARY KEY, nombre, fecha, email, comentario, nivel )');
     };
 

@@ -5,6 +5,8 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   OfertCtrl = (function(_super) {
+    var oferta;
+
     __extends(OfertCtrl, _super);
 
     function OfertCtrl() {
@@ -16,8 +18,11 @@
       "tap nav#addFavorite": "onAddFavorite"
     };
 
+    oferta = null;
+
     OfertCtrl.prototype.initialize = function(data) {
       var view;
+      oferta = data;
       $$('section#ofert').html('');
       view = new __View.Ofert({
         model: data
@@ -32,7 +37,14 @@
     };
 
     OfertCtrl.prototype.onAddFavorite = function() {
+      var db;
+      db = window.openDatabase("SiJoven", "1.0", "Test DB", 1000000);
+      db.transaction(__Controller.Ofert.Query, __Controller.Ofert.Error, __Controller.Ofert.success);
       return console.log('aa');
+    };
+
+    OfertCtrl.prototype.Query = function(tx) {
+      return tx.executeSql('INSERT INTO favorites (PkOferta unique, EntidadNombre, EdadObejtivo, Oportunidad, Ubicacion, UrlFuente ) VALUES ( #{oferta.result[0].PkOferta}, #{oferta.result[0].EntidadNombre}, , #{oferta.result[0].EdadObejtivo}, #{oferta.result[0].Oportunidad}, #{oferta.result[0].Ubicacion}, #{oferta.result[0].UrlFuente} )');
     };
 
     return OfertCtrl;

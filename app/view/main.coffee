@@ -26,9 +26,10 @@ class __View.Main extends Monocle.View
 		</article>
 		<footer>
 			<nav>
-				<a href="#" class="active" data-action="search" data-icon="search"></a>
-				<a href="#" data-action="star" data-icon="star"></a>
-				<a href="#" data-action="heart" data-icon="heart"></a>
+				<a href="#" class="active" data-action="search" data-icon="search">
+					<span class="icon search"></span></a>
+				<a href="#" data-action="star" data-icon="star"><span class="icon star"></span></a></a>
+				<a href="#" data-action="heart" data-icon="heart"><span class="icon heart"></span></a></a>
 				<a href="#" data-view-section="profile" data-action="hv"><span>HV</span></a>
 			</nav>
 		</footer>
