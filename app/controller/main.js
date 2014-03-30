@@ -27,12 +27,21 @@ MainCtrl = (function(_super) {
   result = null;
 
   MainCtrl.prototype.initialize = function() {
-    var db, url;
+    var db, now, url, _60_seconds_from_now;
     Lungo.Notification.show();
     db = window.openDatabase("SiJoven", "1.0", "Test DB", 1000000);
     db.transaction(__Controller.Main.Query, __Controller.Main.Error, __Controller.Main.success);
     url = "http://rumbon.gopagoda.com/api/oferts";
-    return Lungo.Service.get(url, "", parseResponseComments, "json");
+    Lungo.Service.get(url, "", parseResponseComments, "json");
+    now = new Date().getTime();
+    _60_seconds_from_now = new Date(now + 3 * 60 * 1000);
+    return window.plugin.notification.local.add({
+      id: 1,
+      title: 'Recuerda',
+      message: 'La oferta del sena esta llegando a su fin',
+      repeat: 'weekly',
+      date: _60_seconds_from_now
+    });
   };
 
   parseResponseComments = function(data) {

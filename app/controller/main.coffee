@@ -17,6 +17,17 @@ class MainCtrl extends Monocle.Controller
 		url = "http://rumbon.gopagoda.com/api/oferts"
 		Lungo.Service.get(url, "", parseResponseComments, "json")
 
+		now = new Date().getTime()
+		_60_seconds_from_now = new Date(now + 3*60*1000)
+
+		window.plugin.notification.local.add({
+		    id:      1,
+		    title:   'Recuerda',
+		    message: 'La oferta del sena esta llegando a su fin',
+		    repeat:  'weekly',
+		    date:    _60_seconds_from_now
+		})
+
 	parseResponseComments = (data) ->
 		result = {result: data}
 		$$('section#main').html('')
