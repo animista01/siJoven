@@ -44,7 +44,8 @@
     };
 
     ProfileCtrl.prototype.Query = function(tx) {
-      return console.log('INSERT INTO profile (id PRIMARY KEY, nombre, fecha, email, comentario, nivel ) VALUES ( 1, ' + '"' + this.nombre.val() + '",' + '"' + this.fecha.val() + '",' + '"' + this.correo.val() + '",' + '"' + this.comentario.val() + '",' + this.nivel.val() + ')');
+      tx.executeSql('INSERT INTO profile (id PRIMARY KEY, nombre, fecha, email, comentario, nivel ) VALUES ( 1, ' + $$("#txtCompletename").val() + '","' + $$("#datepicker").val() + '","' + $$("#txtEmail").val() + '","' + $$("#txtcomentario").val() + '","' + $$("#txtnivel").val() + '"")');
+      return tx.executeSql('UPDATE profile SET nombre = "' + $$("#txtCompletename").val() + '",' + ' fecha = "' + $$("#datepicker").val() + '",' + ' email = "' + $$("#txtEmail").val() + '",' + ' comentario = "' + $$("#txtcomentario").val() + '",' + ' nivel = "' + $$("#txtnivel").val() + '")');
     };
 
     return ProfileCtrl;
