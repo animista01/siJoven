@@ -8,11 +8,12 @@ class __View.Ofert extends Monocle.View
 			</nav>
 			<p class="title centered">{{#result}} {{EntidadNombre}} {{/result}}</p>
    		</header>
-	    <article id="art-ofert" class="list scroll indented active">
+	    <article id="art-ofert" class="active">
 	    	{{#result}}
 		    	<div class="empty" id="{{PkOferta}}">
-		    		<nav class="on-right" id="addFavorite">
-						<span class="icon heart"></span>
+		    		<nav class="on-right">
+		    			<a id="addFavorite" class="button"><span class="icon ok-circle"></span></a>
+		    			<a id="facebook" class="button"><span class="icon facebook"></span></a>
 					</nav>
 					<span class="tag count on-left">{{EdadObejtivo}}</span>
 					<span class="icon paper-clip"></span>

@@ -2,7 +2,9 @@ class OfertCtrl extends Monocle.Controller
 
 	events: 
 		"tap a#back"       		: "onBack"
-		"tap nav#addFavorite"   : "onAddFavorite"
+		"tap a#addFavorite"     : "onAddFavorite"
+		"tap a#facebook"        : "onFacebook"
+
 
 	oferta = null
 	initialize: (data) ->
@@ -17,18 +19,10 @@ class OfertCtrl extends Monocle.Controller
 		do __Controller.Main.initialize
 
 	onAddFavorite: ->
-
 		db = window.openDatabase("SiJoven", "1.0", "Test DB", 1000000)
 		db.transaction( __Controller.Ofert.Query, __Controller.Ofert.Error, __Controller.Ofert.success )
-		console.log 'aa'
 
 	Query: (tx) ->
-		tx.executeSql('INSERT INTO favorites (PkOferta unique, EntidadNombre, EdadObejtivo, Oportunidad, Ubicacion, UrlFuente ) VALUES ( #{oferta.result[0].PkOferta}, #{oferta.result[0].EntidadNombre}, , #{oferta.result[0].EdadObejtivo}, #{oferta.result[0].Oportunidad}, #{oferta.result[0].Ubicacion}, #{oferta.result[0].UrlFuente} )')
-
-		# tx.executeSql('UPDATE favorites SET nombre = "' + $$("#txtCompletename").val() + '",' +
-		# 	' fecha = "' + $$("#datepicker").val() + '",' +
-		# 	' email = "' + $$("#txtEmail").val() + '",' +
-		# 	' comentario = "' + $$("#txtcomentario").val() + '",' +
-		# 	' nivel = "' + $$("#txtnivel").val() + '")')
+		tx.executeSql('INSERT INTO favorites (PkOferta unique, EntidadNombre, EdadObejtivo, Oportunidad, Ubicacion, UrlFuente ) VALUES ("' + oferta.result[0].PkOferta + '","' + oferta.result[0].EntidadNombre + '","' + oferta.result[0].EdadObejtivo + '","' + oferta.result[0].Oportunidad + '","' + oferta.result[0].Ubicacion + '","' + oferta.result[0].UrlFuente + '")')
 
 __Controller.Ofert = new OfertCtrl "section#ofert"
