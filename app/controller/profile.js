@@ -11,19 +11,41 @@
       return ProfileCtrl.__super__.constructor.apply(this, arguments);
     }
 
+    ProfileCtrl.prototype.elements = {
+      "#txtCompletename": "nombre",
+      "#datepicker": "fecha",
+      "#txtEmail": "correo",
+      "#txtcomentario": "comentario",
+      "#txtnivel": "nivel"
+    };
+
     ProfileCtrl.prototype.events = {
-      "tap input#datepicker": "onDatePicker"
+      "tap input#datepicker": "onDatePicker",
+      "tap button": "onSave"
     };
 
     ProfileCtrl.prototype.onDatePicker = function() {
-      var option;
-      option = {
+      return datePicker.show({
         date: new Date(),
         mode: 'date'
-      };
-      return datePicker.show(option, function(date) {
-        return $$('#datepicker').val("" + date);
+      }, function(date) {
+        var año, dia, mes;
+        mes = date.getDate();
+        dia = date.getMonth();
+        año = date.getFullYear();
+        return $$('#datepicker').val(dia + "/" + mes + "/" + año);
       });
+    };
+
+    ProfileCtrl.prototype.onSave = function() {
+      var db;
+      db = window.openDatabase("SiJoven", "1.0", "Test DB", 1000000);
+      return db.transaction(__Controller.Profile.Query, __Controller.Profile.Error, __Controller.Profile.success);
+    };
+
+    ProfileCtrl.prototype.Query = function(tx) {
+      tx.executeSql('INSERT INTO profile (id PRIMARY KEY, nombre, fecha, email, comentario, nivel ) VALUES ( 1, ' + $$("#txtCompletename").val() + '","' + $$("#datepicker").val() + '","' + $$("#txtEmail").val() + '","' + $$("#txtcomentario").val() + '","' + $$("#txtnivel").val() + '"")');
+      return tx.executeSql('UPDATE profile SET nombre = "' + $$("#txtCompletename").val() + '",' + ' fecha = "' + $$("#datepicker").val() + '",' + ' email = "' + $$("#txtEmail").val() + '",' + ' comentario = "' + $$("#txtcomentario").val() + '",' + ' nivel = "' + $$("#txtnivel").val() + '")');
     };
 
     return ProfileCtrl;
