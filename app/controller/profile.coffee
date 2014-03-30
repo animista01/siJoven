@@ -8,6 +8,7 @@ class ProfileCtrl extends Monocle.Controller
 	events: 
 		"tap input#datepicker"  : "onDatePicker"
 		"tap button"			: "onSave"
+		"tap a#star"			: "onStar"
 
 	onDatePicker: ->
 		datePicker.show( {date: new Date(), mode: 'date'}, (date) ->
@@ -16,7 +17,10 @@ class ProfileCtrl extends Monocle.Controller
 			año = date.getFullYear()
 			$$('#datepicker').val( dia +  "/" + mes + "/" +  año )
 		)
-	
+
+	onStar: ->
+		do __Controller.Filter.initialize
+
 	onSave: ->
 		db = window.openDatabase("SiJoven", "1.0", "Test DB", 1000000)
 		db.transaction( __Controller.Profile.Query, __Controller.Profile.Error, __Controller.Profile.success )
