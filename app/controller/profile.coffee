@@ -4,10 +4,10 @@ class ProfileCtrl extends Monocle.Controller
 		"tap input#datepicker"  : "onDatePicker"
 
 	onDatePicker: ->
-		option = {date: new Date(), mode: 'date'}
-		datePicker.show(option, (date) ->
-			$$('#datepicker').val(date)
+		datePicker.show( {date: new Date(), mode: 'datetime'}, (date) ->
+			$$('#datepicker').val("#{date}")
 		)
 
+	#$('#datepicker').val 'date'
 
 __Controller.Profile = new ProfileCtrl "section#profile"

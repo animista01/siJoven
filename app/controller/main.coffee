@@ -1,16 +1,15 @@
 class MainCtrl extends Monocle.Controller
-
+	elements:
+		"#txtSearch"    			  : "search"
 	events: 
 		"tap a[data-action=locate]"   : "onLocate"
-		# "tap a[data-action=hv]"       : "onHV"
+		"tap span#btnSearch"          : "OnSearch"
 
 	initialize: ->
 		Lungo.Router.section 'main'
 
-	# onHV: ->
-	# 	Lungo.Notification.show()
-	# 	Lungo.Router.section 'profile'
-	# 	Lungo.Notification.hide()
+	OnSearch: ->
+		console.log @search.val()
 
 
 Lungo.ready ->
