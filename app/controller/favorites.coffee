@@ -1,8 +1,6 @@
 class FavoritesCtrl extends Monocle.Controller
 	events: 
 		"tap article#art-favorites ul li"    	  : "onTapStablishment"
-		"swipeLeft article#art-favorites ul li"   : "onSwipeLeftStablishment"
-		"tap button[data-action=logout]"          : "logout"
 
 	initialize: ->
 			url = "http://app-back.eu1.frbit.net/api/user/favorites"
@@ -25,12 +23,5 @@ class FavoritesCtrl extends Monocle.Controller
 		Lungo.Notification.show()
 		id = e.currentTarget.id
 		__Controller.Establishment.initialize id
-
-	onSwipeLeftStablishment: (e) ->
-		id = e.currentTarget.id
-		console.log 'swipeLeft', id
-
-	logout: ->
-		do __Controller.Main.onLogout
 
 __Controller.Favorites = new FavoritesCtrl "section#favorites"

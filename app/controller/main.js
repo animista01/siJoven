@@ -35,4 +35,8 @@ MainCtrl = (function(_super) {
 Lungo.ready(function() {
   __Controller.Main = new MainCtrl("section#main");
   return __Controller.Main.initialize();
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 2944c2ca0c64c5b94278fd4b86745ab62e948466
