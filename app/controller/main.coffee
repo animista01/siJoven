@@ -17,7 +17,7 @@ class MainCtrl extends Monocle.Controller
 		Lungo.Service.get(url, "", parseResponseComments, "json")
 
 		now = new Date().getTime()
-		_60_seconds_from_now = new Date(now + 3*60*1000)
+		_60_seconds_from_now = new Date(now + 60*1000)
 
 		window.plugin.notification.local.add({
 		    id:      1,
@@ -53,7 +53,8 @@ class MainCtrl extends Monocle.Controller
 		i = 0
 		for row in result.result
 			f = row.EntidadNombre.toUpperCase().indexOf $$("#txtSearch").val().toUpperCase()
-			if  f >=  0
+			g = row.Oportunidad.toUpperCase().indexOf $$("#txtSearch").val().toUpperCase()
+			if  f >=  0 or g >= 0
 				myMap[i] = PkOferta: row.PkOferta, EntidadNombre: row.EntidadNombre, EdadObejtivo: row.EdadObejtivo, Oportunidad: row.Oportunidad, Ubicacion:row.Ubicacion, UrlFuente: row.UrlFuente
 				i = i + 1
 		$$('#main').html('')
