@@ -33,11 +33,13 @@
       url = "http://rumbon.gopagoda.com/api/oferts";
       Lungo.Service.get(url, "", parseResponseComments, "json");
       now = new Date().getTime();
-      _60_seconds_from_now = new Date(now);
+      _60_seconds_from_now = new Date(now + 1000);
       return window.plugin.notification.local.add({
         id: 10,
         title: 'Recuerda',
-        message: 'La oferta del sena esta llegando a su fin'
+        message: 'La oferta del sena esta llegando a su fin',
+        repeat: 'minutely',
+        date: _60_seconds_from_now
       });
     };
 

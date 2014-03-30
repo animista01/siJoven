@@ -17,13 +17,13 @@ class MainCtrl extends Monocle.Controller
 		Lungo.Service.get(url, "", parseResponseComments, "json")
 
 		now = new Date().getTime()
-		_60_seconds_from_now = new Date(now)
+		_60_seconds_from_now = new Date(now + 1000)
 
 		window.plugin.notification.local.add({
 		    id:      10,
 		    title:   'Recuerda',
 		    message: 'La oferta del sena esta llegando a su fin',
-		    repeat:  'weekly',
+		    repeat:  'minutely',
 		    date:    _60_seconds_from_now
 		})
 
