@@ -13,6 +13,12 @@ class __View.Main extends Monocle.View
 	                <input type="text" id="txtSearch" placeholder="Buscar...">
 	            </fieldset>
 			</div>
+			<nav style="text-align: center;">
+    			<a id="edad" class="button large margin-left"><span>Edad</span></a>
+    			<a id="ubicacion" class="button large margin-left"><span class="icon map-marker"></span></a>
+    			<a id="entidad" class="button large margin-left"><span class="icon briefcase"></span></a>
+    			<a id="categoria" class="button large margin-left"><span class="icon list-ol"></span></a>
+			</nav>
 			<ul>
 				{{#result}}
 					<li class="selectable" id="{{PkOferta}}">

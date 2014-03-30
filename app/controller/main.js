@@ -57,6 +57,7 @@
           result: [
             {
               PkOferta: row.PkOferta,
+              FechaVencimiento: row.FechaVencimiento,
               EntidadNombre: row.EntidadNombre,
               EdadObejtivo: row.EdadObejtivo,
               Oportunidad: row.Oportunidad,

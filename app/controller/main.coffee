@@ -26,7 +26,7 @@ class MainCtrl extends Monocle.Controller
 	onOfert: (e) ->
 		myMap = {}
 		for row in result.result
-		  myMap[row.PkOferta] = result : [PkOferta: row.PkOferta, EntidadNombre: row.EntidadNombre, EdadObejtivo: row.EdadObejtivo, Oportunidad: row.Oportunidad, Ubicacion:row.Ubicacion, UrlFuente: row.UrlFuente]
+		  myMap[row.PkOferta] = result : [PkOferta: row.PkOferta, FechaVencimiento:row.FechaVencimiento ,EntidadNombre: row.EntidadNombre, EdadObejtivo: row.EdadObejtivo, Oportunidad: row.Oportunidad, Ubicacion:row.Ubicacion, UrlFuente: row.UrlFuente]
 		id = e.currentTarget.id
 
 		Lungo.Notification.show()
